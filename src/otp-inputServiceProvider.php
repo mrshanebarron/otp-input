@@ -11,14 +11,14 @@ class otp-inputServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ld-otp-input.php', 'ld-otp-input');
+        $this->mergeConfigFrom(__DIR__ . '/../config/sb-otp-input.php', 'sb-otp-input');
     }
 
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'ld-otp-input');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sb-otp-input');
 
-        Livewire::component('ld-otp-input', otp-input::class);
+        Livewire::component('sb-otp-input', otp-input::class);
 
         $this->loadViewComponentsAs('ld', [
             Bladeotp-input::class,
@@ -26,12 +26,12 @@ class otp-inputServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/ld-otp-input.php' => config_path('ld-otp-input.php'),
-            ], 'ld-otp-input-config');
+                __DIR__ . '/../config/sb-otp-input.php' => config_path('sb-otp-input.php'),
+            ], 'sb-otp-input-config');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/ld-otp-input'),
-            ], 'ld-otp-input-views');
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/sb-otp-input'),
+            ], 'sb-otp-input-views');
         }
     }
 }

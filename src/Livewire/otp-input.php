@@ -8,6 +8,6 @@ class otp-input extends Component
 {
     public function render()
     {
-        return view('ld-otp-input::livewire.otp-input');
+        return view('sb-otp-input::livewire.otp-input');
     }
 }

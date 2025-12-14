@@ -13,6 +13,6 @@ class otp-input extends Component
 
     public function render()
     {
-        return view('ld-otp-input::components.otp-input');
+        return view('sb-otp-input::components.otp-input');
     }
 }

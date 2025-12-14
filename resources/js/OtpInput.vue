@@ -22,7 +22,7 @@
 import { ref, watch, nextTick } from 'vue';
 
 export default {
-  name: 'LdOtpInput',
+  name: 'SbOtpInput',
   props: {
     modelValue: { type: String, default: '' },
     length: { type: Number, default: 6 },

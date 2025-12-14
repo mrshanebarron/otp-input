@@ -1,5 +1,5 @@
 <?php
 
 return [
-    // Default settings for ld-otp-input
+    // Default settings for sb-otp-input
 ];
