@@ -4,8 +4,7 @@ namespace MrShaneBarron\OtpInput;
 
 use Illuminate\Support\ServiceProvider;
 use MrShaneBarron\OtpInput\Livewire\OtpInput;
-use MrShaneBarron\OtpInput\View\Components\otp-input as BladeOtpInput;
-use Livewire\Livewire;
+use MrShaneBarron\OtpInput\View\Components\OtpInput as BladeOtpInput;
 
 class OtpInputServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,9 @@ class OtpInputServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'sb-otp-input');
 
-        Livewire::component('sb-otp-input', otp-input::class);
+        if (class_exists(\Livewire\Livewire::class)) {
+            \Livewire\Livewire::component('sb-otp-input', OtpInput::class);
+        }
 
         $this->loadViewComponentsAs('ld', [
             BladeOtpInput::class,

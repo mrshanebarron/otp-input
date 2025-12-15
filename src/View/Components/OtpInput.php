@@ -1,10 +1,10 @@
 <?php
 
-namespace MrShaneBarron\otp-input\View\Components;
+namespace MrShaneBarron\OtpInput\View\Components;
 
 use Illuminate\View\Component;
 
-class otp-input extends Component
+class OtpInput extends Component
 {
     public function __construct()
     {
