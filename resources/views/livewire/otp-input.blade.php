@@ -1,7 +1,7 @@
 <div
     x-data="{
         otp: @entangle('value'),
-        length: {{ $length }},
+        length: {{ $this->length }},
         inputs: [],
         init() {
             this.inputs = this.$refs.container.querySelectorAll('input');
@@ -40,19 +40,21 @@
         }
     }"
     x-ref="container"
-    class="flex gap-2"
+    style="display: flex; gap: 8px;"
 >
-    @for($i = 0; $i < $length; $i++)
+    @for($i = 0; $i < $this->length; $i++)
         <input
-            type="{{ $type === 'number' ? 'tel' : 'text' }}"
-            inputmode="{{ $type === 'number' ? 'numeric' : 'text' }}"
+            type="{{ $this->type === 'number' ? 'tel' : 'text' }}"
+            inputmode="{{ $this->type === 'number' ? 'numeric' : 'text' }}"
             maxlength="1"
-            @if($autofocus && $i === 0) autofocus @endif
-            @if($disabled) disabled @endif
+            @if($this->autofocus && $i === 0) autofocus @endif
+            @if($this->disabled) disabled @endif
             x-on:input="handleInput({{ $i }}, $event)"
             x-on:keydown="handleKeydown({{ $i }}, $event)"
             x-on:paste="handlePaste($event)"
-            class="w-12 h-14 text-center text-xl font-semibold border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
+            style="width: 48px; height: 56px; text-align: center; font-size: 20px; font-weight: 600; border: 1px solid #d1d5db; border-radius: 8px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+            onfocus="this.style.borderColor='#3b82f6'; this.style.boxShadow='0 0 0 3px rgba(59,130,246,0.2)';"
+            onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
         >
     @endfor
 </div>
